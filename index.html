@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Happy Birthday Ananya 🎂</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      background: linear-gradient(135deg, #ff69b4, #ffb6d9);
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+      color: white;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 450px;
+      text-align: center;
+    }
+
+    .welcome {
+      animation: fadeIn 1.5s;
+    }
+
+    .welcome h1 {
+      font-size: 42px;
+      text-shadow: 0 3px 10px #c2185b;
+    }
+
+    .welcome p {
+      margin-top: 15px;
+      font-size: 20px;
+    }
+
+    button {
+      margin-top: 30px;
+      padding: 13px 30px;
+      border: none;
+      border-radius: 30px;
+      background: white;
+      color: #e91e63;
+      font-size: 18px;
+      font-weight: bold;
+      cursor: pointer;
+      box-shadow: 0 5px 15px #c2185b;
+    }
+
+    .birthday {
+      display: none;
+      animation: fadeIn 1.5s;
+    }
+
+    .cake {
+      font-size: 100px;
+      animation: bounce 1.5s infinite;
+    }
+
+    .birthday h1 {
+      font-size: 38px;
+      margin: 15px 0;
+      text-shadow: 0 3px 10px #c2185b;
+    }
+
+    .name {
+      color: #fff;
+      font-size: 45px;
+      font-weight: bold;
+    }
+
+    .letter {
+      display: none;
+      margin-top: 25px;
+      padding: 25px;
+      background: rgba(255,255,255,0.95);
+      color: #c2185b;
+      border-radius: 20px;
+      box-shadow: 0 5px 25px rgba(0,0,0,0.2);
+      animation: fadeIn 1s;
+    }
+
+    .letter h2 {
+      margin-bottom: 15px;
+    }
+
+    .letter p {
+      font-size: 17px;
+      line-height: 1.6;
+    }
+
+    .heart {
+      position: absolute;
+      font-size: 25px;
+      animation: fall 5s linear infinite;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: scale(0.8);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    @keyframes bounce {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-20px);
+      }
+    }
+
+    @keyframes fall {
+      0% {
+        top: -10%;
+        opacity: 1;
+      }
+      100% {
+        top: 110%;
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+
+    <!-- Welcome Screen -->
+    <div class="welcome" id="welcome">
+      <h1>💗 Welcome 💗</h1>
+      <p>একটি বিশেষ Birthday Surprise অপেক্ষা করছে...</p>
+
+      <button onclick="showBirthday()">
+        🎁 Open Surprise
+      </button>
+    </div>
+
+
+    <!-- Birthday Screen -->
+    <div class="birthday" id="birthday">
+
+      <div class="cake">🎂</div>
+
+      <h1>🎉 Happy Birthday to 🎉</h1>
+
+      <div class="name">
+        অনন্যা
+      </div>
+
+      <p style="margin-top:15px;">
+        💕 তোমার দিনটি অনেক সুন্দর হোক 💕
+      </p>
+
+      <button onclick="openLetter()">
+        💌 Open Letter
+      </button>
+
+      <!-- Letter -->
+      <div class="letter" id="letter">
+
+        <h2>💖 Dear Ananya 💖</h2>
+
+        <p>
+          শুভ জন্মদিন অনন্যা! 🎂🎉
+          <br><br>
+          তোমার জীবনের প্রতিটি দিন
+          আনন্দ, ভালোবাসা ও সুন্দর
+          মুহূর্তে ভরে উঠুক।
+          <br><br>
+          তোমার সব স্বপ্ন পূরণ হোক।
+          💕🌸
+          <br><br>
+           Happy birthday my dear monu💫💝 🎁
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <script>
+
+    function showBirthday() {
+      document.getElementById("welcome").style.display = "none";
+      document.getElementById("birthday").style.display = "block";
+
+      createHearts();
+    }
+
+    function openLetter() {
+      document.getElementById("letter").style.display = "block";
+    }
+
+    function createHearts() {
+
+      for (let i = 0; i < 3; i++) {
+
+        let heart = document.createElement("div");
+
+        heart.className = "heart";
+        heart.innerHTML = ":love you monu💫";
+
+        heart.style.left = Math.random() * 100 + "%";
+        heart.style.animationDelay = Math.random() * 5 + "s";
+
+        document.body.appendChild(heart);
+      }
+    }
+
+  </script>
+
+</body>
+</html>
